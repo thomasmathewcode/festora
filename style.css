@@ -1,0 +1,509 @@
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#090b08;color:#f7f1e8;font-family:"DM Sans",sans-serif}
+body.menu-open{overflow:hidden}
+a{color:inherit}
+.loader{position:fixed;inset:0;z-index:3000;background:#080a07;display:grid;place-content:center;text-align:center;transition:.65s ease}.loader.hide{opacity:0;visibility:hidden}.loader-lotus{width:58px;height:58px;margin:0 auto 16px;border:1px solid #d9ae4a;border-radius:50%;display:grid;place-items:center;color:#e7c86f;font-size:27px}.loader strong{font:500 15px "Playfair Display",serif;letter-spacing:.42em;margin-left:.42em}.loader small{margin-top:8px;color:#9c978c;font-size:7px;letter-spacing:.3em}
+.site-header{position:fixed;z-index:1200;inset:0 0 auto;height:112px;pointer-events:none;background:linear-gradient(#050704c9,transparent)}
+.brand-hotspot{position:absolute;left:3.2%;top:27px;width:285px;height:55px;pointer-events:auto}.desktop-hotspots{position:absolute;right:7.6%;top:26px;display:flex;gap:20px;pointer-events:auto}.desktop-hotspots a{display:block;width:110px;height:45px}.desktop-hotspots a:last-child{width:155px}
+.hamburger{display:none;position:absolute;right:4.5%;top:26px;width:46px;height:46px;border:0;background:transparent;align-items:center;justify-content:center;flex-direction:column;gap:6px;pointer-events:auto}.hamburger span{width:24px;height:1.5px;background:#f5eee3;display:block;transition:.25s}.hamburger[aria-expanded=true] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}.hamburger[aria-expanded=true] span:nth-child(2){opacity:0}.hamburger[aria-expanded=true] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:2200;background:radial-gradient(circle at 50% 35%,#3c241b,#0a0c09 60%);opacity:0;visibility:hidden;transform:translateY(-14px);transition:.35s ease;display:flex;align-items:center;justify-content:center}.mobile-menu.open{opacity:1;visibility:visible;transform:none}.menu-close{position:absolute;right:20px;top:20px;width:44px;height:44px;border-radius:50%;border:1px solid #d9ae4a;color:#fff;background:transparent;font-size:28px}.mobile-menu-inner{text-align:center;display:flex;flex-direction:column;gap:27px}.menu-brand{font:500 18px "Playfair Display",serif;letter-spacing:.34em;color:#e5bf68;margin-bottom:14px}.mobile-link{text-decoration:none;text-transform:uppercase;font:500 42px "Playfair Display",serif;letter-spacing:.03em}.mobile-link:hover{color:#e5bf68}
+.hero{height:100svh;min-height:650px;position:relative;overflow:hidden;background:#090b08}.hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.08) 55%,rgba(0,0,0,.28));pointer-events:none}.hero-button-hotspot{position:absolute;z-index:10;left:50%;top:69.2%;transform:translateX(-50%);width:370px;height:66px;border-radius:8px;pointer-events:auto}.hero-scroll{position:absolute;z-index:11;left:50%;bottom:35px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;color:#fff;opacity:.95}.hero-scroll span{display:block;width:25px;height:42px;border:1px solid #fff;border-radius:15px;position:relative}.hero-scroll span:after{content:"";position:absolute;left:50%;top:7px;width:2px;height:7px;background:#fff;transform:translateX(-50%);border-radius:2px}.hero-scroll b{font-size:18px;font-weight:400}
+.gallery-section{padding:105px 0 120px;background:radial-gradient(circle at 88% 0,#8b4b3e22,transparent 28%),linear-gradient(135deg,#1a1b16,#0c0e0b)}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px}.eyebrow{font-size:8px;letter-spacing:.35em;color:#dcb66b}.section-head h2{margin:8px 0 8px;font:500 clamp(50px,7vw,86px)/.9 "Playfair Display",serif}.section-head p{margin:0;color:#a7a399;font-size:12px;letter-spacing:.03em}.count{font-size:8px;letter-spacing:.25em;color:#8c8a81}
+.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.card{position:relative;overflow:hidden;cursor:pointer;background:#211f19;isolation:isolate;box-shadow:0 20px 55px #0007;transition:.45s}.card:nth-child(1){grid-column:span 7;height:570px;grid-row:span 2}.card:nth-child(2){grid-column:span 5;height:276px}.card:nth-child(3){grid-column:span 5;height:276px}.card:nth-child(n+4):nth-child(-n+9){grid-column:span 4;height:340px}.card:nth-child(10){grid-column:span 12;height:350px}.card:before,.card:after{content:"";position:absolute;z-index:4;width:27px;height:27px;border-color:#d9ae4a;transition:.4s;pointer-events:none}.card:before{top:12px;left:12px;border-top:1px solid;border-left:1px solid}.card:after{right:12px;bottom:12px;border-right:1px solid;border-bottom:1px solid}.card:hover{transform:translateY(-6px);box-shadow:0 30px 75px #000b}.card:hover:before,.card:hover:after{width:43px;height:43px;border-color:#c98b75}.card img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9);transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s}.card:hover img{transform:scale(1.06);filter:saturate(1.08)}.shade{position:absolute;inset:0;z-index:2;background:linear-gradient(0deg,#070806e8,transparent 60%);pointer-events:none}.card-info{position:absolute;z-index:5;left:18px;right:16px;bottom:18px}.card-info b{display:block;color:#fff;font:500 17px/1.18 "Playfair Display",serif;text-shadow:0 2px 12px #000;letter-spacing:.01em}
+.closing{text-align:center;padding:85px 0;background:#090b08;color:#817e75;font-size:8px;letter-spacing:.3em}.closing-mark{width:45px;height:45px;border:1px solid #d9ae4a;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;color:#d9ae4a;font:21px "Playfair Display"}footer{display:flex;justify-content:space-between;align-items:center;padding:22px 5vw;background:#050604;border-top:1px solid #25251f;color:#77756e;font-size:11px;letter-spacing:.08em}footer strong{color:#d9ae4a;letter-spacing:.28em}
+.lightbox{position:fixed;inset:0;z-index:2500;background:#050604f7;display:none;align-items:center;justify-content:center}.lightbox.open{display:flex}.light-close,.light-arrow{position:absolute;z-index:3;width:46px;height:46px;border-radius:50%;background:#11130fdd;border:1px solid #d9ae4a88;color:#fff}.light-close{right:20px;top:20px;font-size:26px}.light-arrow{top:50%;font-size:34px;line-height:1}.light-arrow.left{left:20px}.light-arrow.right{right:20px}.light-content{width:min(1050px,90vw);text-align:center}.light-content img{max-width:100%;max-height:76vh;box-shadow:0 30px 100px #000}.light-content div{margin-top:12px;font:500 16px "Playfair Display",serif}.light-content small{font-size:9px;color:#88867e}
+@media(max-width:767px){
+.site-header{height:75px;background:linear-gradient(#050604df,transparent)}.brand-hotspot,.desktop-hotspots{display:none}.hamburger{display:flex}.hero{min-height:650px}.hero-art{object-position:center center;transform:scale(1.34)}.hero:after{background:linear-gradient(180deg,rgba(0,0,0,.42),rgba(0,0,0,.04) 28%,rgba(0,0,0,.32) 75%,rgba(0,0,0,.55))}.hero-mobile-shade{position:absolute;inset:0;z-index:3;background:radial-gradient(circle at 50% 45%,transparent 18%,rgba(0,0,0,.13) 60%,rgba(0,0,0,.4) 100%);pointer-events:none}.hero-button-hotspot{top:72%;width:250px;height:58px}.hero-scroll{bottom:22px}.gallery-section{padding:72px 0 88px}.section-head{align-items:end}.section-head h2{font-size:52px}.section-head p{font-size:11px;max-width:240px;line-height:1.5}.count{display:none}.gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px}.card:nth-child(n){grid-column:span 1;height:235px}.card:nth-child(1){grid-column:span 2;height:340px}.card:nth-child(10){grid-column:span 2;height:250px}.card:before,.card:after{width:18px;height:18px}.card-info{left:11px;bottom:11px}.card-info b{font-size:13px}.mobile-link{font-size:42px}.light-content{width:94vw}.light-content img{max-height:68vh}.light-arrow{top:auto;bottom:24px}.light-arrow.left{left:25%}.light-arrow.right{right:25%}footer{padding:18px 6vw;font-size:10px}footer span{font-size:10px}
+}
+@media(min-width:768px) and (max-width:1100px){.hero-button-hotspot{top:68%;width:330px}.brand-hotspot{width:230px}.desktop-hotspots{right:6%}}
+
+/* ===== FESTORA MOBILE FINAL ===== */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+img{max-width:100%;height:auto}
+
+@media (max-width:900px){
+  .hero{min-height:100svh!important;height:auto!important;padding:0 22px;background-position:center center!important}
+  .nav,.navbar,header{padding-left:18px!important;padding-right:18px!important}
+  .nav-links{display:none!important}
+  .menu-toggle,.hamburger{display:flex!important;align-items:center;justify-content:center;min-width:42px;min-height:42px;z-index:1001}
+  .hero-content{width:100%!important;max-width:700px!important;margin:auto!important;padding:80px 0 90px!important}
+  .hero-title,.hero-brand,.hero h1{font-size:clamp(52px,17vw,105px)!important;line-height:.9!important;letter-spacing:.04em!important}
+  .hero-subtitle,.hero h2{font-size:clamp(34px,10vw,62px)!important;line-height:.98!important}
+  .hero-kicker,.hero-meta{font-size:10px!important;letter-spacing:.18em!important}
+  .hero-button,.cta,.view-button{min-height:48px!important;padding:13px 20px!important}
+  .gallery-grid{grid-template-columns:1fr 1fr!important;gap:12px!important}
+  .card{min-width:0!important;width:100%!important}
+  .card img{width:100%!important;display:block;object-fit:cover}
+  .card .card-info{left:10px!important;right:10px!important;bottom:10px!important}
+  .lightbox-content,.modal-content{width:calc(100vw - 24px)!important;max-width:calc(100vw - 24px)!important}
+}
+
+@media (max-width:600px){
+  .hero{min-height:100svh!important;padding:0 16px}
+  .hero-content{padding-top:95px!important;padding-bottom:80px!important}
+  .hero-title,.hero-brand,.hero h1{font-size:clamp(46px,18vw,82px)!important}
+  .hero-subtitle,.hero h2{font-size:clamp(29px,9.5vw,48px)!important}
+  .gallery-grid{grid-template-columns:1fr!important;gap:16px!important}
+  .card .card-info b{font-size:15px!important}
+  .mobile-menu,.menu-panel{width:100%!important;max-width:100%!important}
+  .mobile-menu a,.menu-panel a{font-size:18px!important;padding:15px 0!important}
+}
+
+@media (max-width:380px){
+  .hero-content{padding-top:85px!important}
+  .hero-title,.hero-brand,.hero h1{font-size:43px!important}
+  .hero-subtitle,.hero h2{font-size:27px!important}
+  .hero-button,.cta,.view-button{width:100%!important}
+}
+
+/* =========================================================
+   FESTORA — TRUE MOBILE RESPONSIVE FINAL
+   ========================================================= */
+
+.mobile-hero-copy{display:none}
+
+@media (max-width: 767px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden}
+  body{min-width:0}
+  .site-header{height:74px}
+  .hamburger{right:14px;top:14px;width:46px;height:46px;border:1px solid rgba(217,174,74,.65);border-radius:50%;background:rgba(7,8,6,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+
+  /* Mobile hero: never depend on the desktop 16:9 composition. */
+  .hero{
+    height:100svh!important;
+    min-height:680px!important;
+    max-height:none!important;
+    background:#11130f!important;
+    overflow:hidden;
+  }
+  .hero-art{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center bottom!important;
+    transform:none!important;
+    filter:brightness(.58) saturate(.9)!important;
+  }
+  .hero:after{
+    background:
+      linear-gradient(180deg,rgba(4,6,4,.62) 0%,rgba(4,6,4,.20) 24%,rgba(4,6,4,.15) 48%,rgba(4,6,4,.62) 100%)!important;
+  }
+  .hero-mobile-shade{
+    position:absolute;
+    z-index:4;
+    inset:0;
+    pointer-events:none;
+    background:
+      radial-gradient(ellipse at 50% 43%,rgba(0,0,0,0) 0%,rgba(0,0,0,.08) 45%,rgba(0,0,0,.45) 100%),
+      linear-gradient(180deg,rgba(0,0,0,.18) 0%,transparent 35%,rgba(0,0,0,.18) 70%,rgba(0,0,0,.45) 100%);
+  }
+
+  /* Cover the baked-in desktop typography and replace it with responsive HTML. */
+  .mobile-hero-copy{
+    display:flex;
+    position:absolute;
+    z-index:8;
+    inset:0;
+    padding:108px 20px 90px;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    color:#fff;
+  }
+  .mobile-hero-brand{
+    font:500 clamp(38px,12vw,58px)/1 "Playfair Display",serif;
+    letter-spacing:.22em;
+    margin-left:.22em;
+    color:#e8c86e;
+    text-shadow:0 3px 22px rgba(0,0,0,.75);
+  }
+  .mobile-hero-line{
+    width:min(150px,42vw);
+    height:1px;
+    margin:18px auto 10px;
+    background:linear-gradient(90deg,transparent,#d9ae4a,transparent);
+  }
+  .mobile-hero-script{
+    font:400 clamp(34px,10vw,48px)/.9 Allura,cursive;
+    color:#fff;
+    text-shadow:0 3px 18px rgba(0,0,0,.8);
+    margin-bottom:-1px;
+  }
+  .mobile-hero-copy h1{
+    margin:0;
+    color:#e99579;
+    font:500 clamp(39px,11.8vw,58px)/.95 "Playfair Display",serif;
+    letter-spacing:.025em;
+    text-shadow:0 3px 22px rgba(0,0,0,.85);
+  }
+  .mobile-hero-meta{
+    margin-top:20px;
+    color:#f4e9d8;
+    font:600 9px/1.4 "DM Sans",sans-serif;
+    letter-spacing:.20em;
+    text-shadow:0 2px 10px rgba(0,0,0,.85);
+  }
+  .mobile-hero-button{
+    margin-top:26px;
+    min-width:min(250px,82vw);
+    min-height:50px;
+    padding:14px 19px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    border:1px solid #d9ae4a;
+    border-radius:6px;
+    color:#f8e7bd;
+    background:rgba(10,11,8,.25);
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+    text-decoration:none;
+    font:600 9px/1 "DM Sans",sans-serif;
+    letter-spacing:.16em;
+    box-shadow:0 8px 30px rgba(0,0,0,.28);
+  }
+  .mobile-hero-button span{font-size:18px;line-height:.5}
+  .hero-button-hotspot{display:none}
+  .hero-scroll{bottom:18px;z-index:9}
+
+  /* Gallery: cards use an aspect ratio rather than desktop pixel heights. */
+  .gallery-section{padding:68px 0 78px}
+  .gallery-section .container-fluid{padding-left:16px!important;padding-right:16px!important}
+  .section-head{display:block;margin-bottom:24px}
+  .section-head h2{font-size:48px!important;line-height:.95}
+  .section-head p{max-width:300px;font-size:11px;line-height:1.55}
+  .count{display:none}
+  .gallery-grid{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:14px!important;
+  }
+  .card:nth-child(n){
+    grid-column:1!important;
+    grid-row:auto!important;
+    width:100%!important;
+    height:auto!important;
+    aspect-ratio:4 / 5!important;
+    min-height:0!important;
+    max-height:none!important;
+  }
+  .card:nth-child(1),.card:nth-child(10){
+    grid-column:1!important;
+    height:auto!important;
+    aspect-ratio:4 / 5!important;
+  }
+  .card img{
+    position:absolute;
+    inset:0;
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center!important;
+  }
+  .card:before,.card:after{width:20px;height:20px}
+  .card-info{left:14px!important;right:14px!important;bottom:14px!important}
+  .card-info b{
+    font-size:16px!important;
+    line-height:1.2!important;
+    text-shadow:0 2px 14px rgba(0,0,0,.95);
+  }
+
+  /* Mobile lightbox */
+  .lightbox{padding:12px}
+  .light-content{width:100%!important;max-width:100%!important}
+  .light-content img{
+    width:100%!important;
+    max-width:100%!important;
+    max-height:72svh!important;
+    object-fit:contain!important;
+  }
+  .light-content div{font-size:16px!important;padding:0 55px}
+  .light-close{right:14px;top:14px}
+  .light-arrow{
+    top:auto!important;
+    bottom:18px!important;
+    width:44px;
+    height:44px;
+  }
+  .light-arrow.left{left:22%!important}
+  .light-arrow.right{right:22%!important}
+
+  footer{display:flex;flex-direction:column;gap:8px;text-align:center;padding:22px 16px}
+}
+
+@media (max-width:390px){
+  .hero{min-height:620px!important}
+  .mobile-hero-copy{padding-left:16px;padding-right:16px;padding-top:92px;padding-bottom:78px}
+  .mobile-hero-brand{font-size:36px}
+  .mobile-hero-script{font-size:31px}
+  .mobile-hero-copy h1{font-size:36px}
+  .mobile-hero-meta{font-size:8px;letter-spacing:.15em}
+  .mobile-hero-button{width:100%;max-width:260px}
+  .section-head h2{font-size:43px!important}
+  .card-info b{font-size:14px!important}
+}
+
+/* Tablet: preserve the full banner composition without forcing desktop pixels. */
+@media (min-width:768px) and (max-width:1024px){
+  .hero{height:100svh;min-height:650px}
+  .hero-art{object-fit:cover;object-position:center}
+  .gallery-grid{gap:14px}
+  .card:nth-child(1){height:470px}
+  .card:nth-child(2),.card:nth-child(3){height:228px}
+  .card:nth-child(n+4):nth-child(-n+9){height:280px}
+}
+
+/* ===== FINAL MOBILE HERO FIX: clean background + responsive type ===== */
+@media (max-width:767px){
+  .site-header{z-index:30;display:flex;align-items:center;justify-content:flex-start;padding:0 16px!important;background:linear-gradient(180deg,rgba(5,6,4,.78),transparent)!important}
+  .site-header::before{content:'FESTORA';color:#e8c86e;font:500 18px/1 'Playfair Display',serif;letter-spacing:.18em;text-shadow:0 2px 12px rgba(0,0,0,.8)}
+  .hero{background-image:url('assets/images/hero/festora-mobile-bg.jpg')!important;background-size:cover!important;background-position:center!important;min-height:100svh!important;height:100svh!important;padding:0!important}
+  .hero-art{display:none!important}
+  .hero:after{background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.03) 38%,rgba(0,0,0,.35) 100%)!important}
+  .hero-mobile-shade{background:linear-gradient(180deg,rgba(0,0,0,.18),transparent 34%,rgba(0,0,0,.18) 70%,rgba(0,0,0,.46))!important}
+  .mobile-hero-copy{padding:105px 18px 78px!important}
+  .mobile-hero-brand{font-size:clamp(40px,12vw,54px)!important;letter-spacing:.20em!important;margin-left:.20em!important}
+  .mobile-hero-script{font-size:clamp(32px,10vw,45px)!important}
+  .mobile-hero-copy h1{font-size:clamp(38px,11.5vw,54px)!important;white-space:nowrap!important}
+  .mobile-hero-meta{font-size:9px!important;letter-spacing:.16em!important;white-space:nowrap!important}
+  .mobile-hero-button{max-width:275px!important;width:82vw!important}
+  .hero-scroll{display:none!important}
+}
+
+/* =========================================================
+   DEVICE-SAFE MOBILE MODE
+   Phones can report a wider CSS viewport than their physical
+   screen. Use 1100px + coarse pointer as a safety net.
+   ========================================================= */
+@media (max-width:1100px), (pointer:coarse){
+  html,body{width:100%;max-width:100%;overflow-x:hidden}
+  body{min-width:0}
+  .site-header{
+    z-index:30;
+    height:74px!important;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    padding:0 16px!important;
+    background:linear-gradient(180deg,rgba(5,6,4,.82),transparent)!important;
+  }
+  .site-header::before{
+    content:'FESTORA';
+    color:#e8c86e;
+    font:500 19px/1 'Playfair Display',serif;
+    letter-spacing:.18em;
+    text-shadow:0 2px 12px rgba(0,0,0,.8);
+  }
+  .brand-hotspot,.desktop-hotspots{display:none!important}
+  .hamburger{
+    display:flex!important;
+    position:absolute!important;
+    right:14px!important;
+    top:14px!important;
+    width:46px!important;
+    height:46px!important;
+    min-width:46px!important;
+    min-height:46px!important;
+    z-index:1001!important;
+    border:1px solid rgba(217,174,74,.72)!important;
+    border-radius:50%!important;
+    background:rgba(7,8,6,.42)!important;
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+
+  .hero{
+    width:100%!important;
+    height:100svh!important;
+    min-height:620px!important;
+    max-height:none!important;
+    padding:0!important;
+    overflow:hidden!important;
+    position:relative!important;
+    background-image:url('assets/images/hero/festora-mobile-bg.jpg')!important;
+    background-size:cover!important;
+    background-position:center!important;
+    background-repeat:no-repeat!important;
+  }
+  .hero-art{display:none!important}
+  .hero:after{
+    background:linear-gradient(
+      180deg,
+      rgba(0,0,0,.16) 0%,
+      rgba(0,0,0,.03) 34%,
+      rgba(0,0,0,.20) 67%,
+      rgba(0,0,0,.50) 100%
+    )!important;
+  }
+  .hero-mobile-shade{
+    position:absolute!important;
+    inset:0!important;
+    z-index:4!important;
+    pointer-events:none!important;
+    background:linear-gradient(
+      180deg,
+      rgba(0,0,0,.18) 0%,
+      transparent 34%,
+      rgba(0,0,0,.12) 65%,
+      rgba(0,0,0,.45) 100%
+    )!important;
+  }
+
+  .mobile-hero-copy{
+    display:flex!important;
+    position:absolute!important;
+    z-index:8!important;
+    inset:0!important;
+    width:100%!important;
+    box-sizing:border-box!important;
+    padding:105px 18px 72px!important;
+    align-items:center!important;
+    justify-content:center!important;
+    flex-direction:column!important;
+    text-align:center!important;
+  }
+  .mobile-hero-brand{
+    font:500 clamp(38px,9vw,56px)/1 'Playfair Display',serif!important;
+    letter-spacing:.20em!important;
+    margin-left:.20em!important;
+    color:#e8c86e!important;
+    text-shadow:0 3px 22px rgba(0,0,0,.8)!important;
+  }
+  .mobile-hero-line{
+    width:min(150px,42vw)!important;
+    height:1px!important;
+    margin:17px auto 9px!important;
+  }
+  .mobile-hero-script{
+    font:400 clamp(32px,7vw,46px)/.9 Allura,cursive!important;
+    margin-bottom:0!important;
+  }
+  .mobile-hero-copy h1{
+    margin:0!important;
+    color:#e99579!important;
+    font:500 clamp(36px,8.8vw,54px)/.95 'Playfair Display',serif!important;
+    letter-spacing:.02em!important;
+    white-space:nowrap!important;
+  }
+  .mobile-hero-meta{
+    margin-top:19px!important;
+    color:#f4e9d8!important;
+    font:600 clamp(8px,1.7vw,10px)/1.4 'DM Sans',sans-serif!important;
+    letter-spacing:.16em!important;
+    white-space:nowrap!important;
+  }
+  .mobile-hero-button{
+    margin-top:25px!important;
+    width:min(275px,82vw)!important;
+    min-width:0!important;
+    min-height:50px!important;
+    padding:14px 17px!important;
+    box-sizing:border-box!important;
+  }
+  .hero-button-hotspot{display:none!important}
+  .hero-scroll{display:none!important}
+
+  .gallery-section{
+    padding:64px 0 76px!important;
+  }
+  .gallery-section .container-fluid{
+    padding-left:16px!important;
+    padding-right:16px!important;
+  }
+  .section-head{
+    display:block!important;
+    margin-bottom:24px!important;
+  }
+  .section-head h2{
+    font-size:clamp(42px,8vw,54px)!important;
+    line-height:.95!important;
+  }
+  .section-head p{
+    max-width:300px!important;
+    font-size:11px!important;
+    line-height:1.55!important;
+  }
+  .count{display:none!important}
+
+  .gallery-grid{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:14px!important;
+  }
+  .card:nth-child(n){
+    grid-column:1!important;
+    grid-row:auto!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    aspect-ratio:4/5!important;
+  }
+  .card img{
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center!important;
+  }
+  .card-info{
+    left:14px!important;
+    right:14px!important;
+    bottom:14px!important;
+  }
+  .card-info b{
+    font-size:15px!important;
+    line-height:1.2!important;
+    text-shadow:0 2px 14px rgba(0,0,0,.95)!important;
+  }
+
+  .mobile-menu{
+    width:100%!important;
+    max-width:none!important;
+  }
+  .mobile-link{
+    font-size:clamp(30px,7vw,44px)!important;
+  }
+
+  .lightbox{padding:12px!important}
+  .light-content{
+    width:100%!important;
+    max-width:100%!important;
+  }
+  .light-content img{
+    width:100%!important;
+    max-width:100%!important;
+    max-height:72svh!important;
+    object-fit:contain!important;
+  }
+  .light-arrow{
+    top:auto!important;
+    bottom:18px!important;
+    width:44px!important;
+    height:44px!important;
+  }
+  .light-arrow.left{left:22%!important}
+  .light-arrow.right{right:22%!important}
+
+  footer{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:8px!important;
+    text-align:center!important;
+    padding:22px 16px!important;
+  }
+}
+
+@media (max-width:390px), (pointer:coarse) and (max-width:390px){
+  .mobile-hero-copy{padding:94px 15px 68px!important}
+  .mobile-hero-brand{font-size:36px!important}
+  .mobile-hero-script{font-size:31px!important}
+  .mobile-hero-copy h1{font-size:34px!important}
+  .mobile-hero-meta{font-size:8px!important;letter-spacing:.14em!important}
+  .mobile-hero-button{width:84vw!important}
+  .card-info b{font-size:14px!important}
+}
